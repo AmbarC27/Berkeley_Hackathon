@@ -71,7 +71,7 @@ def process(query):
     text_chunks = char_text_splitter.split_text(text)
     
     # create embeddings
-    openai_api_key = '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 ' # Replace with your actual OpenAI key
+    openai_api_key = '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' # Replace with your actual OpenAI key
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     docsearch = FAISS.from_texts(text_chunks, embeddings)
 
