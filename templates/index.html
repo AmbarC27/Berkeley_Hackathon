@@ -1,4 +1,21 @@
-<form method="POST">
-  <input type="text" name="query" placeholder="Enter your query" />
-  <input type="submit" value="Submit" />
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Query Submission</title>
+  </head>
+  <body>
+    <h1>Query Submission</h1>
+
+    <!-- Display the conversation history -->
+    <div>
+      {% for prompt in conversation %}
+      <p>{{ prompt }}</p>
+      {% endfor %}
+    </div>
+
+    <form method="POST" action="/">
+      <input type="text" name="query" placeholder="Enter your prompt" />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

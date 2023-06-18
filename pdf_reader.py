@@ -49,8 +49,6 @@ def process(query):
     train_directory = 'train_files/'
     merged_data_file = 'merged_data.pkl'
 
-    print('function initiated')
-
     # Check if merged data file exists
     if os.path.exists(merged_data_file):
         # Load the merged data from the file
@@ -71,7 +69,7 @@ def process(query):
     text_chunks = char_text_splitter.split_text(text)
     
     # create embeddings
-    openai_api_key = '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' # Replace with your actual OpenAI key
+    openai_api_key = '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'  # Replace with your actual OpenAI key
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     docsearch = FAISS.from_texts(text_chunks, embeddings)
 
@@ -80,10 +78,11 @@ def process(query):
 
     ##################################################
 
-    print('about to start lawyer query')
+    # Convert conversation to a single string
+    # conversation_text = '\n'.join(conversation)
 
     # Ask a question
-    lawyer_query = "Pretend that you are a lawyer, please provide your professional perspective on the following matter: " + query
+    lawyer_query = "Pretend that you are a lawyer,seak from a first person point of view, please provide your professional perspective on the following matter: " + query
 
     temperature = 1
     # max_tokens = 200
@@ -96,12 +95,9 @@ def process(query):
     print(lawyer_query)
     print(" ")
     print(response)
-    
-    # # If you want to keep track of your spending
-    # with get_openai_callback(openai_api_key=openai_api_key) as cb:
-    #     response = chain.run(input_documents=docs, question=query) 
-    #     print(cb)
+
+    # Extract the answer from the response
     return response
 
-query = "I went to an event where there were people debating violently about the use of guns. I tried talking to them but i was assaulted. As my lawyer, help me file a lawsuit. what are the steps i need to take? let's think step by step"
+query = "I went to an event where there were people debating violently about the use of guns. I tried talking to them but i was assaulted. As my lawyer, help me file a lawsuit. what are the steps i need to take? Reply like you are Saul Goodman let's think step by step"
 # process(query)
