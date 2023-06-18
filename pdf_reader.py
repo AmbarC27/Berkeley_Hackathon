@@ -76,7 +76,7 @@ def process(query):
 
     # create embeddings
     # Replace with your actual OpenAI key
-    openai_api_key = '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'
+    openai_api_key = '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'
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     docsearch = FAISS.from_texts(text_chunks, embeddings)
 
