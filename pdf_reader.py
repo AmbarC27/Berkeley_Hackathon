@@ -69,7 +69,7 @@ def process(query):
     text_chunks = char_text_splitter.split_text(text)
     
     # create embeddings
-    openai_api_key = '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'  # Replace with your actual OpenAI key
+    openai_api_key = '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'  # Replace with your actual OpenAI key
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     docsearch = FAISS.from_texts(text_chunks, embeddings)
 
@@ -82,10 +82,10 @@ def process(query):
     # conversation_text = '\n'.join(conversation)
 
     # Ask a question
-    lawyer_query = "Pretend that you are a lawyer,seak from a first person point of view, please provide your professional perspective on the following matter: " + query
+    lawyer_query = "Pretend that you are a lawyer,speak from a first person point of view.As a lawyer, be professional, friendly, warm, quick, direct a bit sassy, bold and confident. Don't be mean to the user. Greet the user and appear really knowledgeable and have a witty personality. Also, use some emojis depending on the context. Please provide your professional perspective on the following matter: " + query
 
     temperature = 1
-    # max_tokens = 200
+    max_tokens = 500
     model = 'gpt-4'
 
     docs = docsearch.similarity_search(lawyer_query)

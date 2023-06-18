@@ -10,7 +10,7 @@ def index():
     if request.method == 'POST':
         prompt = request.form['query']
         if len(conversation) == 0:
-            conversation.append("Pretend that you are a lawyer, please provide your professional perspective on the following matter: " + prompt)
+            conversation.append("Pretend that you are a lawyer, speak from a first person point of view, please provide your professional perspective on the following matter: " + prompt)
         else:
             conversation.append(prompt)
 
