@@ -1,4 +1,4 @@
-# Berkeley_Hackathon
+# Better Call Paul
 
 Paul is your charming personal lawyer who already knows all the laws and helps you battle your legal cases.
 
